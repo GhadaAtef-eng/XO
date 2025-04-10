@@ -54,11 +54,13 @@ for (const item of gridItems) {
             (boardArray[2] == boardArray[4] && boardArray[4] == boardArray[6])
 
         ) {
-            var winner = currentTurn == " O" ? "O" : "X"
+            var winner = currentTurn;
+            currentTurn == " O" ? "O" : "X";
             gameIsFinished = true;
             // alert(`${winner} Won!`)
             alertify.alert(`${winner} Won!`);
         }
+
         var isDraw = true;
         for (square of boardArray) {
             if (square != "X" && square != "O") {
@@ -67,7 +69,8 @@ for (const item of gridItems) {
         }
         if (isDraw) {
             gameIsFinished = true
-            alert("Draw")
+            // alert("Draw")
+            alertify.alert('Draw');
         }
     }
 }
@@ -83,17 +86,17 @@ function reset() {
         let squareContent = document.querySelector(`.square[value="${value}"]`);
 
         squareContent.innerHTML = "";
-        let boardArray = [
+         boardArray = [
             "0", "1", "2",
             "3", "4", "5",
             "6", "7", "8",
         ];
-
-        gameIsFinished = false;
-        currentTurn = "X";
-        document.getElementById("instruction").innerText = `${currentTurn} Turn`;
-
-
     }
+    gameIsFinished = false;
+    currentTurn = "X";
+    document.getElementById("instruction").innerText = `${currentTurn} Turn`;
+
+
+
 }
 
